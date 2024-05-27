@@ -13,8 +13,8 @@ type Context struct {
 	context.Context
 	Cfg *conf.Config
 	credential.AccessTokenHandle
-	AuthorizerUserId string
-	HttpClient       *http.HttpClient
+
+	HttpClient *http.HttpClient
 }
 
 func NewContext(cfg *conf.Config) *Context {

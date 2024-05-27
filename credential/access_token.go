@@ -49,12 +49,11 @@ func (a *DefaultAccessToken) GetRemoteServerToken() (*GetServerTokenResp, error)
 		Appid:     a.appID,
 		AppSecret: a.appSecret,
 	}
-	var result GetServerTokenResp
-	_, err := a.httpClient.HttpPostJson(getAccessTokenUrl, req, &result, nil)
+	_, result, err := a.httpClient.HttpPostJson(getAccessTokenUrl, req, &GetServerTokenResp{}, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &result, nil
+	return result.(*GetServerTokenResp), nil
 }
 
 func (a *DefaultAccessToken) GetAccessToken() (string, error) {

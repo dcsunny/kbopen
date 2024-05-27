@@ -7,6 +7,8 @@ type Config struct {
 	Appid     string //应用appid
 	AppSecret string //应用secret
 
+	AuthorizerUserId string //授权应用的id
+
 	HttpTimeout int64 //http请求超时的设置 单位秒
 
 	RedisOpts *cache.RedisOpts

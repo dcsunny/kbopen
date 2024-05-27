@@ -2,7 +2,6 @@ package account
 
 import (
 	"github.com/dcsunny/kbopen/context"
-	"github.com/dcsunny/kbopen/http"
 )
 
 const (
@@ -19,6 +18,10 @@ func NewAccount(ctx *context.Context) *Account {
 	}
 }
 
+type InfoReq struct {
+	AuthorizerUserId string `json:"authorizerUserId"`
+}
+
 type InfoData struct {
 	AccountId int    `json:"accountId"`
 	Nickname  string `json:"nickname"`
@@ -30,11 +33,9 @@ type InfoData struct {
 }
 
 func (a *Account) Info() (*InfoData, error) {
-	req := http.Request{AuthorizerUserId: a.ctx.AuthorizerUserId}
-	var infoData InfoData
-	_, err := a.ctx.HttpClient.HttpPostJson(infoUrl, req, &infoData, a.ctx.GetAccessToken)
+	_, infoData, err := a.ctx.HttpClient.HttpPostJsonWithAuthorizer(infoUrl, nil, &InfoData{}, a.ctx.GetAccessToken)
 	if err != nil {
 		return nil, err
 	}
-	return &infoData, nil
+	return infoData.(*InfoData), nil
 }

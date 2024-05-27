@@ -10,10 +10,11 @@ import (
 
 func main() {
 	cfg := &conf.Config{
-		Appid:     "",
-		AppSecret: "",
+		Appid:            "",
+		AppSecret:        "",
+		AuthorizerUserId: "",
 	}
-	client := htsy.NewClient(cfg, "")
+	client := htsy.NewClient(cfg)
 	r, err := client.Account().Info()
 	if err != nil {
 		log.Fatal(err)

@@ -32,12 +32,11 @@ type GetAuthorizerUserIDData struct {
 
 func (a *Authorizer) GetAuthorizerUserID(code string) (string, error) {
 	req := GetAuthorizerUserIDReq{Code: code}
-	var result GetAuthorizerUserIDData
-	_, err := a.ctx.HttpClient.HttpPostJson(getAuthorizerUrl, req, &result, a.ctx.GetAccessToken)
+	_, result, err := a.ctx.HttpClient.HttpPostJson(getAuthorizerUrl, req, &GetAuthorizerUserIDData{}, a.ctx.GetAccessToken)
 	if err != nil {
 		return "", err
 	}
-	return result.AuthorizerUserID, nil
+	return result.(*GetAuthorizerUserIDData).AuthorizerUserID, nil
 }
 
 func GetHtsyAuthLink(appid string, callback string) string {
