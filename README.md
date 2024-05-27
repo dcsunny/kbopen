@@ -6,7 +6,7 @@
 [酷班开放平台](https://open.cpshelp.cn)
 
 ### 文档
-[酷班开放平台文档](https://open.cpshelp.cn/server-docs/api-call-guide/calling-process/overview)
+[酷班开放平台文档](https://open.cpshelp.cn/document/server-docs/api-call-guide/calling-process/overview)
 
 ## 快速开始
 ```
