@@ -38,3 +38,12 @@ func (m *Msg) Send(req *SendReq) (string, error) {
 	}
 	return result.(*SendData).TraceId, nil
 }
+
+func BuildMessageText(content string) Message {
+	return Message{
+		MsgType: MsgTypeText,
+		Text: Text{
+			Content: content,
+		},
+	}
+}

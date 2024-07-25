@@ -1,5 +1,15 @@
 package message
 
+const (
+	MsgTypeText        = "text"
+	MsgTypeImage       = "image"
+	MsgTypeLink        = "link"
+	MsgTypeSticker     = "sticker"
+	MsgTypeVideo       = "video"
+	MsgTypeMiniProgram = "miniProgram"
+	MsgTypeGroup       = "group"
+)
+
 type Message struct {
 	MsgType      string      `json:"msgType"`
 	Text         Text        `json:"text,omitempty"`
