@@ -10,6 +10,7 @@ import (
 	"github.com/dcsunny/kbopen/htsy/account"
 	"github.com/dcsunny/kbopen/htsy/bot"
 	"github.com/dcsunny/kbopen/htsy/callback"
+	"github.com/dcsunny/kbopen/htsy/material"
 	"github.com/dcsunny/kbopen/htsy/message"
 	"github.com/dcsunny/kbopen/htsy/room"
 )
@@ -39,6 +40,10 @@ func (c *Client) Room() *room.Room {
 
 func (c *Client) Msg() *message.Msg {
 	return message.NewMsg(c.Ctx)
+}
+
+func (c *Client) Material() *material.Material {
+	return material.NewMaterial(c.Ctx)
 }
 
 func (c *Client) Callback(body []byte, query url.Values) *callback.Callback {
