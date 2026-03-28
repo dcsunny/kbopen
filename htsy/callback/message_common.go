@@ -34,6 +34,7 @@ type Text struct {
 	Sender         string   `json:"sender"`
 	SenderName     string   `json:"sender_name"`
 	ServerId       string   `json:"server_id"`
+	Appinfo        string   `json:"appinfo"`
 }
 
 // Image 图片

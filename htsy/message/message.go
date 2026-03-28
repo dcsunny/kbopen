@@ -47,3 +47,10 @@ func BuildMessageText(content string) Message {
 		},
 	}
 }
+
+func BuildMessageQuote(quote Quote) Message {
+	return Message{
+		MsgType: MsgTypeQuote,
+		Quote:   quote,
+	}
+}

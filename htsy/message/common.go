@@ -8,6 +8,7 @@ const (
 	MsgTypeVideo       = "video"
 	MsgTypeMiniProgram = "miniProgram"
 	MsgTypeGroup       = "group"
+	MsgTypeQuote       = "quote"
 )
 
 type Message struct {
@@ -25,6 +26,17 @@ type Message struct {
 	MaterialId   int64       `json:"materialId,omitempty"`
 	TraceId      string      `json:"traceId,omitempty"`
 	MaterialName string      `json:"materialName,omitempty"`
+	Quote        Quote       `json:"quoteMessage,omitempty"`
+}
+
+type Quote struct {
+	Content     string   `json:"content"`
+	ContentType int      `json:"contentType"`
+	Appinfo     string   `json:"appinfo"`
+	MsgType     int      `json:"msgType"`
+	Sender      string   `json:"sender"`
+	SenderName  string   `json:"senderName"`
+	AtList      []string `json:"atList"`
 }
 
 type Text struct {
