@@ -16,6 +16,7 @@ const (
 	TypeMessageFreeVideo         = 2009 //视频号
 	TypeMessageBizCard           = 2010 //名片
 	TypeMessageRedPack           = 2011 //红包
-	TypeMessageMsgCollection     = 2012 //聊天合集
+	TypeMessageCollection        = 2012 //聊天合集
 	TypeMessageLiveBroadcastRoom = 2013 //直播间
+	TypeMessageQuoteMsg          = 2014 //引用消息
 )
